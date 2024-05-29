@@ -7,14 +7,14 @@
 }
 
 .search {
-    background-color: #3143e7;
+    background-color: #646fd5;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 25%;
     margin: 25px auto;
-    border: #e5e170 5px solid;
+    border: rgb(212, 212, 212) 5px solid;
 }
 
 .head-container {
@@ -22,4 +22,36 @@
     border-radius: 15px;
     padding: 10px;
     margin: 15px;
+}
+
+.result-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+/* For Dynamic HTML content */
+.book-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px; 
+    margin: 5px auto;
+    background-color: rgb(212, 212, 212);
+    border-radius: 15px;
+    border: black 5px solid;
+}
+.book-card-container, h1, h2 {
+    font-size: 1rem;
+} 
+
+.secondary-desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+.secondary-desc p {
+    font-size: 0.7rem;
 }
