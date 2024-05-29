@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book API Project</title>
+    <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
+    <script type="text/javascript">
+      google.books.load();
+
+    function alertNotFound() {
+        alert("could not embed the book!");
+    }
+
+      function initialize() {
+        var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+        viewer.load('ISBN:0738531367', alertNotFound);
+      }
+
+      google.books.setOnLoadCallback(initialize);
+    </script>
+</head>
+<body>
+    <section class="search">
+        <div class="head-container">
+
+        </div>
+    </section>
+    <section class="display">
+        <div id="viewerCanvas" style="width: 75%; height: 750px"></div>
+    </section>
+</body>
+</html>
