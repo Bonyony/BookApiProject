@@ -6,3 +6,20 @@
   box-sizing: border-box;
 }
 
+.search {
+    background-color: #3143e7;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    margin: 25px auto;
+    border: #e5e170 5px solid;
+}
+
+.head-container {
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 15px;
+}

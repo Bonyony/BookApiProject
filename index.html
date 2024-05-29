@@ -6,28 +6,33 @@
     <title>Book API Project</title>
     <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
     <script type="text/javascript">
-      google.books.load();
+        google.books.load();
 
-    function alertNotFound() {
-        alert("could not embed the book!");
-    }
+        function alertNotFound() {
+            alert("could not embed the book!");
+        }
 
-      function initialize() {
-        var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
-        viewer.load('ISBN:0738531367', alertNotFound);
-      }
+        function initialize() {
+            var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+            viewer.load('ISBN:0738531367', alertNotFound);
+        }
 
-      google.books.setOnLoadCallback(initialize);
+        google.books.setOnLoadCallback(initialize);
     </script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <section class="search">
         <div class="head-container">
-
+            <h1>Book Search</h1>
+            <input id="search-input" placeholder="Ex: Tom Sawyer" required></input>
+            <button id="search-button">Search</button>
         </div>
+        <div id="result"></div>
     </section>
     <section class="display">
         <div id="viewerCanvas" style="width: 75%; height: 750px"></div>
     </section>
 </body>
+<script src="script.js"></script>
 </html>
