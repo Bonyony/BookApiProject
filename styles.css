@@ -7,31 +7,31 @@
 }
 
 .search {
-    background-color: #646fd5;
-    border-radius: 15px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 25%;
+    width: 50%;
     margin: 25px auto;
-    border: rgb(212, 212, 212) 5px solid;
 }
 
+/* 
 .head-container {
     background-color: white;
     border-radius: 15px;
     padding: 10px;
     margin: 15px;
 }
+*/
 
 .result-div {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+
 }
+
+
 /* For Dynamic HTML content */
-.book-card-container {
+
+/* .book-card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,4 +54,4 @@
 }
 .secondary-desc p {
     font-size: 0.7rem;
-}
+} */

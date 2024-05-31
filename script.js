@@ -1,13 +1,19 @@
 // DOM elements
 const userInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-button");
+const clearBtn = document.getElementById("clear-button");
 const result = document.getElementById("result");
 
-// event listener
+// event listeners
 searchBtn.addEventListener("click", (e) => {
     e.preventDefault();
     bookData();
   })
+
+clearBtn.addEventListener("click", e => {
+    e.preventDefault();
+    resetFunc();
+})
 
 // API fetch
 
@@ -23,6 +29,7 @@ const bookData = async () => {
     } catch (err) {
         resetFunc();
         alert("Book not found. :( ");
+        console.log(err)
     }
 }
 
@@ -30,42 +37,31 @@ const bookData = async () => {
 
 const dataDisplay = (books) => {
     let displayBook = books.map(book => {
+        
         console.log(book.volumeInfo);
+
         if (book.volumeInfo !== undefined) {
             return `
-            <article class="book-card-container">
-                <h1>${book.volumeInfo.title}</h1>
-                <h2>By: ${book.volumeInfo.authors}</h2>
-                <img src="${book.volumeInfo.imageLinks.thumbnail}" />
-                <div class="secondary-desc"> 
-                    <p>Page Count: ${book.volumeInfo.pageCount}</p>
-                    <p>Publisher: ${book.volumeInfo.publisher}</p>
-                </div>
-            </article>`
+            <div class="col-3">
+            <div class="card text-bg-dark mb-1 book-card-container" style="width: 17rem;">
+                <img class="card-img-top" style="max-height: 400px; max-width: 400px;" src="${book.volumeInfo.imageLinks?.thumbnail}" title="Book Cover Art" alt="No Cover, sorry :(" />
+                    <div class="card-body">     
+                        <h1 class="card-title">${book.volumeInfo.title}</h1>
+                        <h2 class="card-subtitle">By: ${book.volumeInfo.authors}</h2>
+                        <p class="card-text">Page Count: ${book.volumeInfo.pageCount}</p>
+                        <p class="card-text">Publisher: ${book.volumeInfo.publisher}</p>
+                    </div>
+            </div>
+            </div>`
         }
     });
     displayBook = displayBook.join("");
     result.innerHTML = displayBook;
 }
 
-// const dataDisplay = (data) => {
-//     result.innerHTML = 
-//     `<div class="book-card-container">
-//         <h1>${data.items[0].volumeInfo.title}</h1>
-//         <h2>By: ${data.items[0].volumeInfo.authors[0]}</h2>
-//         <img src="${data.items[0].volumeInfo.imageLinks.thumbnail}" />
-//         <div class="secondary-desc">
-            
-//             <p>Page Count: ${data.items[0].volumeInfo.pageCount}</p>
-//             <p>Publisher: ${data.items[0].volumeInfo.publisher}</p>
-//         </div>
-//     </div>`
-// }
-
-// <p>${data.items[0].volumeInfo.description}</p>
-
 // reset the display of the returned book(s)
 
 const resetFunc = () => {
     result.innerHTML = ``;
+    userInput.value = "";
 }
