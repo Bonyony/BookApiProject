@@ -43,15 +43,42 @@ const dataDisplay = (books) => {
         if (book.volumeInfo !== undefined) {
             return `
             <div class="col-3">
-            <div class="card text-bg-dark mb-1 book-card-container" style="width: 17rem;">
-                <img class="card-img-top" style="max-height: 400px; max-width: 400px;" src="${book.volumeInfo.imageLinks?.thumbnail}" title="Book Cover Art" alt="No Cover, sorry :(" />
-                    <div class="card-body">     
-                        <h1 class="card-title">${book.volumeInfo.title}</h1>
-                        <h2 class="card-subtitle">By: ${book.volumeInfo.authors}</h2>
-                        <p class="card-text">Page Count: ${book.volumeInfo.pageCount}</p>
-                        <p class="card-text">Publisher: ${book.volumeInfo.publisher}</p>
+                <div class="card text-bg-dark mb-1 book-card-container" style="width: 17rem;">
+                    <img class="card-img-top" style="max-height: 400px; max-width: 400px;" src="${book.volumeInfo.imageLinks?.thumbnail}" title="Book Cover Art" alt="No Cover, sorry :(" />
+                        <div class="card-body">     
+                            <h1 class="card-title">${book.volumeInfo.title}</h1>
+                            <h2 class="card-subtitle">By: ${book.volumeInfo.authors}</h2>
+                            <p class="card-text">Page Count: ${book.volumeInfo.pageCount}</p>
+                            <p class="card-text">Publisher: ${book.volumeInfo.publisher}, ${book.volumeInfo.publishedDate}</p>
+                        </div>
+
+                        <button 
+                            type="button" 
+                            class="btn btn-primary" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#learnMoreModal">
+                        Learn More
+                        </button>
+
+                    <div class="modal fade" id="learnMoreModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content text-bg-dark">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">${book.volumeInfo.title}, ${book.volumeInfo.authors}</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: white;"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>${book.volumeInfo.description}</p>
+                                    <p></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <a href="${book.volumeInfo.infoLink}" target="_blank"><button type="button" class="btn btn-primary">Buy Book</button></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-            </div>
+                </div>
             </div>`
         }
     });
