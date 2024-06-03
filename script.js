@@ -39,17 +39,18 @@ const dataDisplay = (books) => {
     let displayBook = books.map(book => {
         
         console.log(book.volumeInfo);
-
+        
         if (book.volumeInfo !== undefined) {
             return `
+            
             <div class="col-3">
                 <div class="card text-bg-dark mb-1 book-card-container" style="width: 17rem;">
-                    <img class="card-img-top" style="max-height: 400px; max-width: 400px;" src="${book.volumeInfo.imageLinks?.thumbnail}" title="Book Cover Art" alt="No Cover, sorry :(" />
+                    <img class="card-img-top" style="max-height: 400px; max-width: 400px;" src="${book.volumeInfo.imageLinks?.thumbnail}" title="Book Cover Art" alt="No Cover Art, sorry :(" />
                         <div class="card-body">     
                             <h1 class="card-title">${book.volumeInfo.title}</h1>
                             <h2 class="card-subtitle">By: ${book.volumeInfo.authors}</h2>
-                            <p class="card-text">Page Count: ${book.volumeInfo.pageCount}</p>
-                            <p class="card-text">Publisher: ${book.volumeInfo.publisher}, ${book.volumeInfo.publishedDate}</p>
+                            <p class="card-text">Page Count: ${book.volumeInfo.pageCount !== undefined ? book.volumeInfo.pageCount : "No page count given"}</p>
+                            <p class="card-text">Publisher: ${book.volumeInfo.publisher !== undefined ? book.volumeInfo.publisher : "No publisher specified"}, ${book.volumeInfo.publishedDate !== undefined ? book.volumeInfo.publishedDate : "No release date given."}</p>
                         </div>
 
                         <button 
@@ -60,15 +61,15 @@ const dataDisplay = (books) => {
                         Learn More
                         </button>
 
-                    <div class="modal fade" id="learnMoreModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="learnMoreModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-scrollable">
                             <div class="modal-content text-bg-dark">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">${book.volumeInfo.title}, ${book.volumeInfo.authors}</h1>
+                                    <h1 class="modal-title fs-5">${book.volumeInfo.title}, ${book.volumeInfo.authors}</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: white;"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>${book.volumeInfo.description}</p>
+                                    <p>${book.volumeInfo.description !== undefined ? book.volumeInfo.description : "No description supplied for this title."}</p>
                                     <p></p>
                                 </div>
                                 <div class="modal-footer">
@@ -79,7 +80,8 @@ const dataDisplay = (books) => {
                         </div>
                     </div>
                 </div>
-            </div>`
+            </div>
+            `
         }
     });
     displayBook = displayBook.join("");
