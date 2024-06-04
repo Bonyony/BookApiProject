@@ -41,17 +41,16 @@ const dataDisplay = (books) => {
         console.log(book.volumeInfo);
         
         if (book.volumeInfo !== undefined) {
-            let i = 0;
             return `
-            
             <div class="col-3">
-                <div class="card text-bg-dark mb-1 book-card-container" style="width: 17rem;">
-                    <img class="card-img-top" style="max-height: 400px; max-width: 400px;" src="${book.volumeInfo.imageLinks?.thumbnail}" title="Book Cover Art" alt="No Cover Art, sorry :(" />
-                        <div class="card-body">     
-                            <h1 class="card-title">${book.volumeInfo.title}</h1>
-                            <h2 class="card-subtitle">By: ${book.volumeInfo.authors}</h2>
-                            <p class="card-text">Page Count: ${book.volumeInfo.pageCount !== undefined ? book.volumeInfo.pageCount : "No page count specified"}</p>
-                            <p class="card-text">Publisher: ${book.volumeInfo.publisher !== undefined ? book.volumeInfo.publisher : "No publisher specified"}, ${book.volumeInfo.publishedDate !== undefined ? book.volumeInfo.publishedDate : "No release date given."}</p>
+                <div class="card text-bg-dark mb-1 book-card-container">
+                        <div class="card-body">
+                            <img class="card-img-top img-fluid"  src="${book.volumeInfo.imageLinks?.thumbnail}" title="Book Cover Art" alt="No Cover Art, sorry :(" />     
+                            <h2 class="card-title">${book.volumeInfo.title}</h2>
+                            <h2 class="card-subtitle">By: ${book.volumeInfo.authors !== undefined ? book.volumeInfo.authors[0] : "Anonymous"}</h2>
+                            <p class="card-text">Page Count: ${book.volumeInfo.pageCount === undefined ? "No page count specified"
+                                                                 : book.volumeInfo.pageCount === 0 ? "No page count specified" : book.volumeInfo.pageCount}</p>
+                            <p class="card-text">Publisher: ${book.volumeInfo.publisher !== undefined ? book.volumeInfo.publisher : "No publisher specified"}, ${book.volumeInfo.publishedDate !== undefined ? book.volumeInfo.publishedDate : "No publishing date given."}</p>
                         </div>
 
                         <button 
@@ -70,7 +69,7 @@ const dataDisplay = (books) => {
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: white;"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>${book.volumeInfo.description !== undefined ? book.volumeInfo.description : "No description supplied for this title."}</p>
+                                    <p>${book.volumeInfo.description !== undefined ? book.volumeInfo.description : "No description currently available for this title."}</p>
                                     <p></p>
                                 </div>
                                 <div class="modal-footer">

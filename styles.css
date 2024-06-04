@@ -5,53 +5,15 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+/* search block */
 .search {
     display: flex;
     width: 50%;
     margin: 25px auto;
 }
-
-/* 
-.head-container {
-    background-color: white;
-    border-radius: 15px;
-    padding: 10px;
-    margin: 15px;
-}
-*/
-
-.result-div {
+/* dynamic result block */
+/* .result-div {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
-}
-
-
-/* For Dynamic HTML content */
-
-/* .book-card-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 200px; 
-    margin: 5px auto;
-    background-color: rgb(212, 212, 212);
-    border-radius: 15px;
-    border: black 5px solid;
-}
-.book-card-container, h1, h2 {
-    font-size: 1rem;
-} 
-
-.secondary-desc {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-}
-.secondary-desc p {
-    font-size: 0.7rem;
 } */
