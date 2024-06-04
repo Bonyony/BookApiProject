@@ -41,6 +41,7 @@ const dataDisplay = (books) => {
         console.log(book.volumeInfo);
         
         if (book.volumeInfo !== undefined) {
+            let i = 0;
             return `
             
             <div class="col-3">
@@ -49,7 +50,7 @@ const dataDisplay = (books) => {
                         <div class="card-body">     
                             <h1 class="card-title">${book.volumeInfo.title}</h1>
                             <h2 class="card-subtitle">By: ${book.volumeInfo.authors}</h2>
-                            <p class="card-text">Page Count: ${book.volumeInfo.pageCount !== undefined ? book.volumeInfo.pageCount : "No page count given"}</p>
+                            <p class="card-text">Page Count: ${book.volumeInfo.pageCount !== undefined ? book.volumeInfo.pageCount : "No page count specified"}</p>
                             <p class="card-text">Publisher: ${book.volumeInfo.publisher !== undefined ? book.volumeInfo.publisher : "No publisher specified"}, ${book.volumeInfo.publishedDate !== undefined ? book.volumeInfo.publishedDate : "No release date given."}</p>
                         </div>
 
@@ -57,11 +58,11 @@ const dataDisplay = (books) => {
                             type="button" 
                             class="btn btn-primary" 
                             data-bs-toggle="modal" 
-                            data-bs-target="#learnMoreModal">
+                            data-bs-target="#${book.id}">
                         Learn More
                         </button>
 
-                    <div class="modal fade" id="learnMoreModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                    <div class="modal fade" id="${book.id}" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-scrollable">
                             <div class="modal-content text-bg-dark">
                                 <div class="modal-header">
