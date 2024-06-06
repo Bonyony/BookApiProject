@@ -48,8 +48,8 @@ const dataDisplay = (books) => {
                             <img class="card-img-top img-fluid"  src="${book.volumeInfo.imageLinks?.thumbnail}" title="Book Cover Art" alt="No Cover Art, sorry :(" />     
                             <h2 class="card-title">${book.volumeInfo.title}</h2>
                             <h2 class="card-subtitle">By: ${book.volumeInfo.authors !== undefined ? book.volumeInfo.authors[0] : "Anonymous"}</h2>
-                            <p class="card-text">Page Count: ${book.volumeInfo.pageCount === undefined ? "No page count specified"
-                                                                 : book.volumeInfo.pageCount === 0 ? "No page count specified" : book.volumeInfo.pageCount}</p>
+                            <p class="card-text">Page Count: ${book.volumeInfo.pageCount === undefined ? "Unspecified"
+                                                                 : book.volumeInfo.pageCount === 0 ? "Unspecified" : book.volumeInfo.pageCount}</p>
                             <p class="card-text">Publisher: ${book.volumeInfo.publisher !== undefined ? book.volumeInfo.publisher : "No publisher specified"}, ${book.volumeInfo.publishedDate !== undefined ? book.volumeInfo.publishedDate : "No publishing date given."}</p>
                         </div>
 

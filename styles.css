@@ -17,3 +17,7 @@
     flex-direction: row;
     flex-wrap: wrap;
 } */
+.about {
+  width: 650px;
+  margin: 25px auto;
+}
