@@ -45,7 +45,7 @@ const dataDisplay = (books) => {
             <div class="col-3">
                 <div class="card text-bg-dark mb-1 book-card-container">
                         <div class="card-body">
-                            <img class="card-img-top img-fluid"  src="${book.volumeInfo.imageLinks?.thumbnail}" title="Book Cover Art" alt="No Cover Art, sorry :(" />     
+                            <img class="card-img-top img-fluid"  src="${book.volumeInfo.imageLinks?.thumbnail}" title="Book Cover Art" alt="No Cover Art, sorry :("  />     
                             <h2 class="card-title">${book.volumeInfo.title}</h2>
                             <h2 class="card-subtitle">By: ${book.volumeInfo.authors !== undefined ? book.volumeInfo.authors[0] : "Anonymous"}</h2>
                             <p class="card-text">Page Count: ${book.volumeInfo.pageCount === undefined ? "Unspecified"
